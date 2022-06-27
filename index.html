@@ -1,7 +1,34 @@
+<!-- Instructions
+- The data.js file contains a global array that contains information on different pokemon types
+- Inside index.js, you should loop through this array and render a "card" for each pokemon type. Use the example image as
+a reference.
+- You will also find an HTML example commented out in the index.html
+Use the exact CSS classes you see in the example HTML to obtain the same style for each card
+- The cards should be nested inside <ul class="cards"></ul>
+- Use the official-artwork object key as the images for the card. The images are all inside of the sprites key, in each
+pokemon object
+- Render all the cards on the page that represents all the pokemons, recreating the same layout, using JS -->
+
+<!-- ## Tips
+- **Start with a single card**. Once you've got a card, think of a way to programmatically create all the others.
+- If you are struggling to create the full card layout - start simple. Try render just the name of each pokemon in a `
+<p>` tag. Then, add the image, then the stats, etc
+  - Use functions to your advantage. Break each card into smaller parts, and think how you can turn them into functions.
+  - Make sure you understand well the data structure before starting to create the cards -->
+
+      <!-- stats: [
+      {
+      base_stat: 45,
+      effort: 0,
+      stat: {
+      name: "hp",
+      url: "https://pokeapi.co/api/v2/stat/1/"
+      } -->
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JS</title>
+    <title>Gotta DOM em all</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
     <script defer src="/src/data.js"></script>
@@ -10,7 +37,21 @@
   <body>
     <h1>Pokemon Trading Cards</h1>
     <ul class="cards">
-      <!-- Look at /templates/card.html for the template of a card -->
+      
+      <!-- <li class="card">
+        <h2 class="card--title">Bulbasaur</h2>
+        <img width="256" class="card--img"
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" />
+        <ul class="card--text">
+          <li>HP: 45</li>
+          <li>ATTACK: 49</li>
+          <li>DEFENSE: 49</li>
+          <li>SPECIAL-ATTACK: 65</li>
+          <li>SPECIAL-DEFENSE: 65</li>
+          <li>SPEED: 45</li>
+        </ul>
+      </li> -->
+
     </ul>
   </body>
 </html>
