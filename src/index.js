@@ -2,8 +2,11 @@
 //You can start simple and just render a single 
 //pokemon card from the first element
 
+// this querySelector gives access to <ul class "card"> in index.html
 const cardsEl = document.querySelector('.cards');
 
+// loop through the entire data file. 
+// const pokemon provides an entry point
 for (let index = 0; index < data.length; index++) {
   const pokemon = data[index];
   // Card
@@ -12,7 +15,7 @@ for (let index = 0; index < data.length; index++) {
   card.setAttribute("class", "card");
   card.style.listStyle = "none"
 
-  // Card
+  // Name
   const h2El = document.createElement("h2");
   card.append(h2El);
   h2El.innerText = pokemon.name;
@@ -68,4 +71,4 @@ for (let index = 0; index < data.length; index++) {
   statSpeed.innerText = "Speed: " + pokemon.stats[4].base_stat;
 }
 
-console.log(data[0]);
+// console.log(data[0]);
