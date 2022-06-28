@@ -1,25 +1,4 @@
-// console.log(data);
-//You can start simple and just render a single 
-//pokemon card from the first element
-
-// const header = document.createElement('header');
-// document.body.append(header);
-// header.setAttribute('header');
-
-// const h1El = document.querySelector('h1');
-// header.append(h1El);
-
-const h1El = document.querySelector('h1');
-h1El.addEventListener('click', function() {
-  h1El.style.color = randomColors()
-})
-
-// const p = document.createElement('p');
-// document.body.append(p);
-// p.textContent = 'Here are all my Pokemon cards, let me know if you want to trade';
-// p.addEventListener('click', function() { 
-//   p.style.color = randomColors()
-// })
+document.body.style.marginTop = '100px'
 
 // Random Colour Generator
 const toHex = 16
@@ -27,6 +6,27 @@ const toHex = 16
 function randomColors() {
   return "#" + Math.floor(Math.random() * 16777215).toString(toHex);
 }
+
+const mainTitle = document.createElement('div');
+document.body.append(mainTitle);
+mainTitle.setAttribute('class', 'title');
+mainTitle.style.position = 'fixed'
+mainTitle.style.top = '0px'
+mainTitle.style.width = '100%';
+mainTitle.style.background = 'red'
+mainTitle.style.color = 'white';
+mainTitle.style.display = 'block'
+
+const h1El = document.querySelector('h1');
+mainTitle.append(h1El);
+h1El.addEventListener('click', function() {
+  h1El.style.color = randomColors()
+})
+
+const p = document.createElement('p');
+mainTitle.append(p);
+p.textContent = 'Here are all my Pokemon cards, let me know if you want to trade';
+p.style.textAlign = 'center'
 
 // this querySelector gives access to <ul class "cards"> in index.html
 const cardsEl = document.querySelector('.cards');
@@ -40,9 +40,14 @@ for (let index = 0; index < data.length; index++) {
   cardsEl.append(card);
   card.setAttribute("class", "card");
   card.style.listStyle = "none";
-  // card.addEventListener("click", function () {
-  //   card.style.background = randomColors();
-  // });
+  card.addEventListener("mouseenter", function () {
+    card.style.background = "red";
+    card.style.color = "white"
+  })
+  card.addEventListener("mouseleave", function () {
+    card.style.background = "white";
+    card.style.color = "black"
+  })
 
   // Name
   const h2El = document.createElement("h2");
@@ -51,18 +56,15 @@ for (let index = 0; index < data.length; index++) {
   h2El.style.textTransform = "capitalize";
 
   // Image
-  // for (let index = 0; index < pokemon.sprites.length; index++) {
-  // const nextImage = pokemon.sprites++;
   const imageEl = document.createElement("img");
   card.append(imageEl);
   imageEl.setAttribute("class", "card--img");
   imageEl.src = pokemon.sprites.front_default;
   imageEl.alt =
-    "A wild " + pokemon.name + " appears on a flattering white void background";
+  "A wild " + pokemon.name + " appears on a flattering white void background";
   imageEl.width = "256";
   imageEl.addEventListener('click', function() {
-    // imageEl.src = pokemon.sprites.back_default;
-    if (imageEl.src == pokemon.sprites.front_default) {
+    if (imageEl.src === pokemon.sprites.front_default) {
       imageEl.src = pokemon.sprites.back_default;
     } else {
       imageEl.src = pokemon.sprites.front_default
@@ -76,7 +78,7 @@ for (let index = 0; index < data.length; index++) {
   statsUl.style.listStyle = "none";
   statsUl.style.textTransform = "uppercase";
   statsUl.style.lineHeight = "2";
-  statsUl.style.fontWeight = "540";
+  statsUl.style.fontWeight = "600";
 
   //Stat li HP
   const statHP = document.createElement("li");
