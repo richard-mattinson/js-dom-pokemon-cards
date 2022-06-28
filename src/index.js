@@ -10,9 +10,9 @@
 // header.append(h1El);
 
 const h1El = document.querySelector('h1');
-// h1El.addEventListener('click', function() {
-//   h1El.style.color = randomColors()
-// })
+h1El.addEventListener('click', function() {
+  h1El.style.color = randomColors()
+})
 
 // const p = document.createElement('p');
 // document.body.append(p);
@@ -40,9 +40,9 @@ for (let index = 0; index < data.length; index++) {
   cardsEl.append(card);
   card.setAttribute("class", "card");
   card.style.listStyle = "none";
-  card.addEventListener("click", function () {
-    card.style.background = randomColors();
-  });
+  // card.addEventListener("click", function () {
+  //   card.style.background = randomColors();
+  // });
 
   // Name
   const h2El = document.createElement("h2");
@@ -51,18 +51,22 @@ for (let index = 0; index < data.length; index++) {
   h2El.style.textTransform = "capitalize";
 
   // Image
-    // for (let index = 0; index < pokemon.sprites.length; index++) {
-    // const nextImage = pokemon.sprites++;
+  // for (let index = 0; index < pokemon.sprites.length; index++) {
+  // const nextImage = pokemon.sprites++;
   const imageEl = document.createElement("img");
   card.append(imageEl);
   imageEl.setAttribute("class", "card--img");
-  imageEl.src = pokemon.sprites.back_default;
+  imageEl.src = pokemon.sprites.front_default;
   imageEl.alt =
     "A wild " + pokemon.name + " appears on a flattering white void background";
   imageEl.width = "256";
-  // imageEl.addEventListener('click', function() {
-  //   imageEl.src = nextImage
-  // })}
+  imageEl.addEventListener('click', function() {
+    // imageEl.src = pokemon.sprites.back_default;
+    if (imageEl.src == pokemon.sprites.front_default) {
+      imageEl.src = pokemon.sprites.back_default;
+    } else {
+      imageEl.src = pokemon.sprites.front_default
+  }})
 
   // Stats ul
   const statsUl = document.createElement("ul");
