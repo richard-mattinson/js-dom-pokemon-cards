@@ -10,16 +10,16 @@
 // header.append(h1El);
 
 const h1El = document.querySelector('h1');
-h1El.addEventListener('click', function() {
-  h1El.style.color = randomColors()
-})
+// h1El.addEventListener('click', function() {
+//   h1El.style.color = randomColors()
+// })
 
-const p = document.createElement('p');
-document.body.append(p);
-p.textContent = 'Here are all my Pokemon cards, let me know if you want to trade';
-p.addEventListener('click', function() { 
-  p.style.color = randomColors()
-})
+// const p = document.createElement('p');
+// document.body.append(p);
+// p.textContent = 'Here are all my Pokemon cards, let me know if you want to trade';
+// p.addEventListener('click', function() { 
+//   p.style.color = randomColors()
+// })
 
 // Random Colour Generator
 const toHex = 16
@@ -51,6 +51,8 @@ for (let index = 0; index < data.length; index++) {
   h2El.style.textTransform = "capitalize";
 
   // Image
+    // for (let index = 0; index < pokemon.sprites.length; index++) {
+    // const nextImage = pokemon.sprites++;
   const imageEl = document.createElement("img");
   card.append(imageEl);
   imageEl.setAttribute("class", "card--img");
@@ -58,6 +60,9 @@ for (let index = 0; index < data.length; index++) {
   imageEl.alt =
     "A wild " + pokemon.name + " appears on a flattering white void background";
   imageEl.width = "256";
+  // imageEl.addEventListener('click', function() {
+  //   imageEl.src = nextImage
+  // })}
 
   // Stats ul
   const statsUl = document.createElement("ul");
@@ -101,20 +106,21 @@ for (let index = 0; index < data.length; index++) {
 
   // Versions
   const appearancesList = document.createElement("div");
-  card.append(appearancesList)
+  card.append(appearancesList);
   appearancesList.setAttribute("class", "card--text");
-  appearancesList.innerText = "Appearances: "
+  appearancesList.innerText = "Appearances: ";
   appearancesList.style.fontWeight = "600";
 
   for (let index = 0; index < pokemon.game_indices.length; index++) {
-  const allAppearences = pokemon.game_indices[index];
+    const allAppearences = pokemon.game_indices[index];
 
-  const appearances = document.createElement("p");
-  appearancesList.append(appearances);
-  appearances.style.textTransform = "capitalize";
-  appearances.style.display = "inline";
-  appearances.innerText = allAppearences.version.name + ", ";
-  appearances.style.fontWeight = "200";
+    const appearances = document.createElement("p");
+    appearancesList.append(appearances);
+    appearances.style.textTransform = "capitalize";
+    appearances.style.display = "inline";
+    appearances.innerText = allAppearences.version.name + ", ";
+
+    appearances.style.fontWeight = "200";
   }
 }
 
